@@ -3,4 +3,4 @@
 use strict;
 use warnings;
 use Test::More tests => 1;
-use ok 'Catalyst::Authentication::Credential::OAuth';
+use_ok 'Catalyst::Authentication::Credential::OAuth';

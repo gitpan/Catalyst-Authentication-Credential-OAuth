@@ -10,7 +10,7 @@ use String::Random qw/ random_string /;
 use Catalyst::Exception ();
 use namespace::autoclean;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 has debug => ( is => 'ro', isa => Bool );
 has providers => ( is => 'ro', isa => HashRef, required => 1 );
@@ -29,8 +29,8 @@ sub BUILD {
 
 sub _build_ua {
     my $self = shift;
-    
-    LWP::UserAgent->new;    
+
+    LWP::UserAgent->new;
 }
 
 sub authenticate {
@@ -81,7 +81,7 @@ sub authenticate {
 
 		$response = Net::OAuth->response( 'access token' )->from_post_body( $ua_response->content );
 
-		my $user = +{ 
+		my $user = +{
 			token => $response->token,
 			token_secret => $response->token_secret,
 			extra_params => $response->extra_params
@@ -132,7 +132,7 @@ Catalyst::Authentication::Credential::OAuth - OAuth credential for Catalyst::Plu
 
 =head1 VERSION
 
-0.01
+0.02
 
 =head1 SYNOPSIS
 
@@ -210,7 +210,7 @@ Only tested with twitter
 
 =head1 COPYRIGHT
 
-Copyright (c) 2009 Sinapticode. All rights reserved 
+Copyright (c) 2009 Sinapticode. All rights reserved
 
 This program is free software; you can redistribute it and/or modify it under the same terms as Perl itself.
 

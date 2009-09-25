@@ -7,10 +7,17 @@ requires 'Moose';
 requires 'Net::OAuth';
 requires 'LWP::UserAgent';
 requires 'String::Random';
+requires 'MooseX::Types::Common::String';
+requires 'MooseX::Types';
+requires 'namespace::autoclean';
 
-build_requires 'Catalyst::Runtime';
-build_requires 'Test::WWW::Mechanize::Catalyst';
-build_requires 'Test::More';
-build_requires 'ok';
+test_requires 'Catalyst::Runtime';
+test_requires 'Test::More';
+
+if ($Module::Install::AUTHOR) {
+    system("pod2text lib/Catalyst/Authentication/Credential/OAuth.pm > README")
+        and die;
+}
 
 WriteAll();
+
