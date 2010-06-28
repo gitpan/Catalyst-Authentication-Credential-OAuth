@@ -10,7 +10,7 @@ use String::Random qw/ random_string /;
 use Catalyst::Exception ();
 use namespace::autoclean;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 has debug => ( is => 'ro', isa => Bool );
 has providers => ( is => 'ro', isa => HashRef, required => 1 );
@@ -72,6 +72,7 @@ sub authenticate {
 			token => $response->token,
 			token_secret => '',
 			request_url => $provider->{access_token_endpoint},
+			verifier => $c->req->params->{oauth_verifier},
 		);
 		$request->sign;
 
