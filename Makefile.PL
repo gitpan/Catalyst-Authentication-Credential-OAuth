@@ -14,6 +14,8 @@ requires 'namespace::autoclean';
 test_requires 'Catalyst::Runtime';
 test_requires 'Test::More';
 
+resources repository => 'git://git.shadowcat.co.uk/catagits/Catalyst-Authentication-Credential-OAuth.git';
+
 if ($Module::Install::AUTHOR) {
     system("pod2text lib/Catalyst/Authentication/Credential/OAuth.pm > README")
         and die;

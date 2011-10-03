@@ -10,7 +10,7 @@ use String::Random qw/ random_string /;
 use Catalyst::Exception ();
 use namespace::autoclean;
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 has debug => ( is => 'ro', isa => Bool );
 has providers => ( is => 'ro', isa => HashRef, required => 1 );
